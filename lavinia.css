@@ -59,6 +59,7 @@ a{
     background-color: var(--black-color);
     cursor: pointer;
     font-style:inherit;
+    
 }
 .generally-button:hover{
    opacity: 0.6; 
@@ -348,11 +349,12 @@ a{
     max-width: 100%;
     margin: 0 auto;
     padding: 0 10px;
+    text-align: center;
 }
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 7 sütun olacak şekilde ayarla */
+    grid-template-columns: repeat(4, 1fr); /* 4 sütun olacak şekilde ayarla */
     gap: 10px; /* Grid öğeleri arasındaki boşluk */
 }
 
@@ -403,7 +405,8 @@ a{
 .contact .row {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Aralarındaki boşluğu ayarlayın */
+    justify-content: center;
+    align-items: center;
 }
 
 .map-container {
