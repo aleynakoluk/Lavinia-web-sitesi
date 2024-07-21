@@ -107,13 +107,13 @@ a{
 .header .navbar a {
     margin: 0 1rem;
     font-size: 1.6rem;
-    color: var(--box-color);
+    color: var(--black-color);
     border-bottom: 0.1rem solid transparent;
 }
 
 .header .navbar .location,
 .header .navbar a:hover {
-    border-color: var(--black-color);
+    border-color: var(--box-color);
     padding-bottom: 0.5rem;
     margin-left: 0;
 }
@@ -478,11 +478,13 @@ a{
 .contact-item strong {
     display: block;
     font-weight: 600;
-    margin-bottom: 5px;
+    margin-bottom: 1px;
     color: var(--box-color);
+    font-size: 1.3rem;
 }
 .contact-info a {
     color: black;
+    font-size: 1.5rem;
 }
 .contact-info a:hover {
     color: black; 
@@ -559,7 +561,7 @@ a{
     }
 
     .header .navbar a{
-        color: var(--box-color);
+        color: var(--black-color);
         display: block;
         margin: 1.5rem;
         padding: 0.5rem;
@@ -573,15 +575,3 @@ a{
         }
 }
 /*! responsive end */
-
-
-
-
-
-
-
-
-
-
-
-
