@@ -101,7 +101,8 @@ a{
 }
 
 .header .navbar.active{
-    right: 0;
+    opacity: 1; /* Make it visible */
+    pointer-events: auto; /* Enable interaction */
 }
 
 .header .navbar a {
@@ -122,6 +123,7 @@ a{
     display: none;
     font-size: 24px;
     background-color: rgba(255, 255, 255, 0.5);
+    color: var(--black-color);
 }
 /*! header end */
 
@@ -164,6 +166,8 @@ a{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
+    pointer-events: none;
 }
 
 .carousel .nav-buttons {
@@ -290,7 +294,8 @@ a{
 
 .services .row .image img {
     width: 100%;
-    max-width: 200px;
+    max-width: 150px;
+    height: 195px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -355,7 +360,7 @@ a{
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
 
@@ -382,19 +387,19 @@ a{
 /* Responsive tasarım */
 @media (max-width: 1200px) {
     .video-grid {
-        grid-template-columns: repeat(4, 1fr); /* Daha küçük ekranlarda 4 sütun olacak şekilde */
+        grid-template-columns: repeat(3, 1fr); /* Daha küçük ekranlarda 3 sütun olacak şekilde */
     }
 }
 
 @media (max-width: 768px) {
     .video-grid {
-        grid-template-columns: repeat(2, 1fr); /* Daha küçük ekranlarda 2 sütun olacak şekilde */
+        grid-template-columns: repeat(3, 1fr); /* Daha küçük ekranlarda 2 sütun olacak şekilde */
     }
 }
 
 @media (max-width: 480px) {
     .video-grid {
-        grid-template-columns: 1fr; /* En küçük ekranlarda tek sütun olacak şekilde */
+        grid-template-columns: 3fr; /* En küçük ekranlarda tek sütun olacak şekilde */
     }
 }
 
@@ -404,22 +409,34 @@ a{
 /*! contact start */
 
 .contact .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
+    gap: 20px; /* Space between the columns */
+    align-items: start; /* Align items at the top of the grid cells */
 }
 
 .map-container {
-    flex: 1;
-    max-width: 600px;
+    max-width: 100%; /* Ensure the map container does not exceed the width of its parent */
+    width: 100%; /* Ensure it takes full width within the grid cell */
+    height: 0; /* Set height to 0 for responsive aspect ratio */
+    padding-bottom: 56.25%; /* Maintain a 16:9 aspect ratio (560 / 450 * 100) */
+    position: relative; /* Position relative to use absolute positioning inside */
+}
+
+.map-container iframe {
+    position: absolute; /* Absolute positioning for the iframe */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
 .contact-info {
-    padding: 30px;
+    padding: 20px;
     background-color: var(--main-color);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    max-width: 600px;
+    max-width: 580px;
     width: 100%;
     margin: 0 auto;
     font-family: 'Arial', sans-serif;
@@ -427,11 +444,13 @@ a{
     border: none;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    height: auto; /* Allow height to adjust automatically */
 }
 
 .contact-info h3 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--black-color);
     margin: 0;
     text-align: center;
@@ -452,33 +471,34 @@ a{
 .contact-item {
     display: flex;
     align-items: center;
-    padding: 15px;
-    border-radius: 10px;
+    padding: 10px;
+    border-radius: 8px;
     background-color: var(--main-color);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
+    gap: 10px;
 }
 
 .contact-item:hover {
     background-color: var(--main-color);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
 }
 
 .contact-item i {
-    font-size: 2rem; 
+    font-size: 1.8rem; 
     color: var(--box-color); 
-    margin-right: 15px; 
+    margin-right: 10px; 
 }
 
 .contact-item div {
-    font-size: 1.1rem; 
+    font-size: 1rem; 
     color: #333;
 }
 .contact-item strong {
     display: block;
     font-weight: 600;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
     color: var(--box-color);
     font-size: 1.3rem;
 }
@@ -489,7 +509,59 @@ a{
 .contact-info a:hover {
     color: black; 
 }
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact .row {
+        grid-template-columns: 1fr; /* Single column on small screens */
+        gap: 20px; /* Ensure space between rows */
+    }
 
+    .map-container,
+    .contact-info {
+        width: 100%; /* Ensure full width within grid cell */
+    }
+
+    .contact-info {
+        padding: 15px; /* Reduce padding on small screens */
+        gap: 10px; /* Reduce gap between elements */
+    }
+    
+    .contact-item {
+        flex-direction: column; /* Stack icon and text vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+    
+    .contact-item i {
+        margin-right: 0;
+        margin-bottom: 10px; /* Space below the icon */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info h3 {
+        font-size: 1.6rem; /* Further reduce font size on very small screens */
+    }
+
+    .contact-item {
+        padding: 8px; /* Further reduce padding */
+    }
+
+    .contact-item i {
+        font-size: 1.5rem; /* Further reduce icon size */
+    }
+
+    .contact-item div {
+        font-size: 1.3rem; /* Further reduce font size */
+    }
+
+    .contact-item strong {
+        font-size: 1.2rem; /* Further reduce font size */
+    }
+
+    .contact-info a {
+        font-size: 1.3rem; /* Further reduce font size */
+    }
+}
 /*! contact end */
 
 
@@ -531,7 +603,7 @@ a{
         padding: 1.5rem 2rem;
     }
 
-    .header .Written-Logo{
+    .header .logo{
         height: 7rem;
     }
     
@@ -545,15 +617,17 @@ a{
         display: inline-block;;
     }
 
-    .header .navbar{
+    .header .navbar {
         position: absolute;
         top: 95%;
         background-color: var(--main-color);
         height: auto;
-        width: 30rem;
+        width: 25rem;
         box-shadow: 0px 20px 14px 0px rgb(0 0 0 /75%);
-        right: -100%;
         text-align: center;
+        right: 0; /* Keep it within the viewport */
+        opacity: 0; /* Make it invisible */
+        pointer-events: none; /* Prevent interaction when hidden */
     }
 
     .header .navbar.location{

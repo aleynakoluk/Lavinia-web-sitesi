@@ -46,34 +46,34 @@ document.addEventListener('DOMContentLoaded', function () {
     ScrollReveal().reveal('.home', {
         duration: 1000,
         origin: 'bottom',
-        distance: '50px',
+        distance: '10px',
     });
 
     ScrollReveal().reveal('.about', {
         duration: 1000,
         origin: 'left',
-        distance: '50px',
+        distance: '10px',
         delay: 300
     });
 
     ScrollReveal().reveal('.services', {
         duration: 1000,
         origin: 'right',
-        distance: '50px',
+        distance: '10px',
         delay: 600
     });
 
     ScrollReveal().reveal('.shot-section', {
         duration: 1000,
         origin: 'bottom',
-        distance: '50px',
+        distance: '10px',
         delay: 400
     });
 
     ScrollReveal().reveal('.contact', {
         duration: 1000,
         origin: 'top',
-        distance: '50px',
+        distance: '10px',
         delay: 100
     });
 });
